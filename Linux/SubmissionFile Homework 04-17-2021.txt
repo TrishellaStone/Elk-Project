@@ -1,0 +1,96 @@
+## Week 4 Homework Submission File: Linux Systems Administration
+
+### Step 1: Ensure Permissions on Sensitive Files
+
+1. Permissions on `/etc/shadow` should allow only `root` read and write access.
+
+    - Command to inspect permissions: ls -l /etc/shadow
+
+    - Command to set permissions (if needed):
+
+2. Permissions on `/etc/gshadow` should allow only `root` read and write access.
+
+    - Command to inspect permissions: ls -l /etc/gshadow
+
+    - Command to set permissions (if needed):
+
+3. Permissions on `/etc/group` should allow `root` read and write access, and allow everyone else read access only.
+
+    - Command to inspect permissions: ls -l /etc/group
+
+    - Command to set permissions (if needed):
+
+4. Permissions on `/etc/passwd` should allow `root` read and write access, and allow everyone else read access only.
+
+    - Command to inspect permissions: ls -l /etc/passwd
+
+    - Command to set permissions (if needed):
+
+### Step 2: Create User Accounts
+
+1. Add user accounts for `sam`, `joe`, `amy`, `sara`, and `admin`.
+
+    - Command to add each user account (include all five users): sudo useradd sam, sudo useradd joe, sudo useradd amy, sudo useradd sara, sudo useradd admin
+
+2. Force users to create 16-character passwords incorporating numbers and symbols.
+
+    - Command to edit `pwquality.conf` file:
+
+    - Updates to configuration file:
+
+3. Force passwords to expire every 90 days.
+
+
+    - Command to to set each new user's password to expire in 90 days (include all five users): chage -M 90 joe, chage -M 90 amy, chage -M 90 sam, chage -M 90 sara, chage -M 90 admin
+
+4. Ensure that only the `admin` has general sudo access.
+
+    - Command to add `admin` to the `sudo` group: sudo usermod -aG sudopsudo admin
+
+### Step 3: Create User Group and Collaborative Folder
+
+1. Add an `engineers` group to the system.
+
+    - Command to add group: sudo addgroup engineers
+
+2. Add users `sam`, `joe`, `amy`, and `sara` to the managed group.
+
+    - Command to add users to `engineers` group (include all four users): sudo usermod -aG engineers sam, sudo usermod -aG engineers sara, sudo usermod -aG engineers joe, sudo usermod -aG engineers admin amypwd
+
+3. Create a shared folder for this group at `/home/engineers`.
+
+    - Command to create the shared folder: sudo mkdir /home/engineers
+
+4. Change ownership on the new engineers' shared folder to the `engineers` group.
+
+    - Command to change ownership of engineer's shared folder to engineer group: sudo chown root:engineers /home/engineers
+
+5. Add the SGID bit and the sticky bit to allow collaboration between engineers in this directory. 
+
+    - Command to set SGID and sticky bit to shared folder: I apologise, I was not around for these courses of the class. I cannot seem to find where SGID is located and would like assistance
+
+### Step 4: Lynis Auditing
+
+1. Command to install Lynis: sudo apt-get install lynislynis 
+
+2. Command to see documentation and instructions: man lynisq
+
+3. Command to run an audit: sudo lynis audit system
+
+4. Provide a report from the Lynis output on what can be done to harden the system.
+
+    - Screenshot of report output:
+
+
+### Bonus
+1. Command to install chkrootkit:
+
+2. Command to see documentation and instructions:
+
+3. Command to run expert mode:
+
+4. Provide a report from the chrootkit output on what can be done to harden the system.
+    - Screenshot of end of sample output:
+
+---
+© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
